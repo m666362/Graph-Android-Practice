@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     LineChart chart;
     XAxis xAxis;
     YAxis left;
+    EditText inputDataET;
+    Button saveButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +53,24 @@ public class MainActivity extends AppCompatActivity {
         addElementButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numbers.add( new Entry( (float) count, (float) Math.cos( (double) count*3.1416/180 ) ) );
-                setGraph();
-                count = count + 30;
+                View view = LayoutInflater.from( MainActivity.this ).inflate( R.layout.input_data, null );
+                inputDataET = view.findViewById( R.id.rateDayET );
+                saveButton = view.findViewById( R.id.saveButton );
+                final AlertDialog alertDialog = new
+                        AlertDialog.Builder( MainActivity.this )
+                        .setTitle( "Input " )
+                        .setView( view )
+                        .show();
+
+                saveButton.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        numbers.add( new Entry( (float)count++, (float) Float.parseFloat( inputDataET.getText().toString().trim() ) ) );
+                        setGraph();
+                        alertDialog.dismiss();
+                    }
+                } );
+
             }
         } );
 
