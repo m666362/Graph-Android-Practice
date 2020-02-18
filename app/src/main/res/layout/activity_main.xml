@@ -19,11 +19,24 @@
             android:layout_height="match_parent" />
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:id="@+id/pieChart"
+            android:onClick="gotoPie"
+            android:text="Pie"
+            android:layout_alignParentBottom="true"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginHorizontal="16dp"
             android:text="Add element"
             android:id="@+id/addElement"
             android:layout_alignParentBottom="true"/>
+
+
 
     </RelativeLayout>
 

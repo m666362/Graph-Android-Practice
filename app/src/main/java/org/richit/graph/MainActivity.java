@@ -83,9 +83,6 @@ public class MainActivity extends AppCompatActivity {
             }
         } );
 
-
-        //Button
-
     }
 
     private void setGraph() {
@@ -109,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         xAxis.setPosition( XAxis.XAxisPosition.BOTTOM);
         xAxis.setTextSize(10f);
         xAxis.setTextColor(Color.GRAY);
-//        xAxis.setDrawAxisLine(false);
+        xAxis.setDrawAxisLine(true);
         xAxis.setDrawGridLines(false);
         // set a custom value formatter
         xAxis.setValueFormatter( new ValueFormatter() {
@@ -130,5 +127,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void addElement(View view) {
         Toast.makeText( this, ""+count++, Toast.LENGTH_SHORT ).show();
+    }
+
+    public void gotoPie(View view) {
+        Intent pieIntent = new Intent( MainActivity.this, PieActivity.class );
+        finish();
+        startActivity( pieIntent );
     }
 }
