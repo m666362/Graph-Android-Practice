@@ -14,8 +14,16 @@
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chart"
+            android:layout_above="@+id/addElement"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add element"
+            android:id="@+id/addElement"
+            android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
 
