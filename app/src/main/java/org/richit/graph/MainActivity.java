@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +34,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    String TAG = this.getClass().getSimpleName();
     ArrayList<Entry> numbers = new ArrayList<Entry>(  );
     Button addElementButton;
     int count = 0;
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     YAxis left;
     EditText inputDataET;
     Button saveButton;
+    String num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,9 +68,15 @@ public class MainActivity extends AppCompatActivity {
                 saveButton.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        numbers.add( new Entry( (float)count++, (float) Float.parseFloat( inputDataET.getText().toString().trim() ) ) );
-                        setGraph();
-                        alertDialog.dismiss();
+                        num = inputDataET.getText().toString();
+                        if (num != null && !num.isEmpty()){
+                            numbers.add( new Entry( (float) count++, (float) Float.parseFloat( inputDataET.getText().toString().trim() ) ) );
+                            setGraph();
+                            alertDialog.dismiss();
+                        }
+                        else {
+                            Log.d( TAG, "onClick: " + "faul" );
+                        }
                     }
                 } );
 
