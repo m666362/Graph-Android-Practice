@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
         lineDataSet.setColor( Color.RED );
         lineDataSet.setDrawFilled( true );
         lineDataSet.setFillColor( Color.RED );
-
+        lineDataSet.setMode(LineDataSet.Mode.HORIZONTAL_BEZIER);
+        lineDataSet.setCubicIntensity( 0.1f );
         //todo: LineData
         lineData = new LineData(lineDataSet);
 
